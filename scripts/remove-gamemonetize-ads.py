@@ -11,12 +11,12 @@ import re
 import sys
 from pathlib import Path
 
-SCRIPT_RE = re.compile(r"(?is)<script\\b(?P<attrs>[^>]*)>(?P<body>.*?)</script\\s*>")
-SELF_SCRIPT_RE = re.compile(r"(?is)<script\\b(?P<attrs>[^>]*)/\\s*>")
+SCRIPT_RE = re.compile(r"(?is)<script\b(?P<attrs>[^>]*)>(?P<body>.*?)</script\s*>")
+SELF_SCRIPT_RE = re.compile(r"(?is)<script\b(?P<attrs>[^>]*)/\s*>")
 COMMENT_RE = re.compile(r"(?s)<!--.*?-->")
-IFRAME_RE = re.compile(r"(?is)<iframe\\b(?P<attrs>[^>]*)>.*?</iframe\\s*>")
-RESOURCE_RE = re.compile(r"(?is)<(?:link|source|embed|img)\\b[^>]*>")
-MONETIZATION_CALL_RE = re.compile(r"(?i)\\bgmonetize_(?:pause|resume)\\s*\\(\\s*\\)\\s*;?")
+IFRAME_RE = re.compile(r"(?is)<iframe\b(?P<attrs>[^>]*)>.*?</iframe\s*>")
+RESOURCE_RE = re.compile(r"(?is)<(?:link|source|embed|img)\b[^>]*>")
+MONETIZATION_CALL_RE = re.compile(r"(?i)\bgmonetize_(?:pause|resume)\s*\(\s*\)\s*;?")
 MARKERS = (
     "gamemonetize",
     "gmonetize",
@@ -40,7 +40,7 @@ def remove_gamemonetize(html: str) -> tuple[str, int]:
     def clean_script(match: re.Match[str]) -> str:
         nonlocal removed
         block = match.group(0)
-        if is_monetization_block(match.group("attrs") + "\\n" + match.group("body")):
+        if is_monetization_block(match.group("attrs") + "\n" + match.group("body")):
             removed += 1
             return ""
         return block
@@ -124,7 +124,7 @@ def main() -> int:
                     path.write_text(after, encoding="utf-8")
     if args.check and offenders:
         print("GameMonetize injections remain in:", file=sys.stderr)
-        print("\\n".join(offenders[:100]), file=sys.stderr)
+        print("\n".join(offenders[:100]), file=sys.stderr)
         if len(offenders) > 100:
             print(f"... and {len(offenders) - 100} more", file=sys.stderr)
         return 1
