@@ -87,12 +87,12 @@ def remove_gamemonetize(html: str) -> tuple[str, int]:
     html, call_count = MONETIZATION_CALL_RE.subn("", html)
     removed += call_count
     if removed:
-        had_final_newline = html.endswith(("\\n", "\\r"))
-        newline = "\\r\\n" if "\\r\\n" in html else "\\n"
+        had_final_newline = html.endswith(("\n", "\r"))
+        newline = "\r\n" if "\r\n" in html else "\n"
         # Script tags are often indented on their own line. Remove whitespace
         # left on blank lines by deletion, and avoid introducing extra EOF lines.
-        html = re.sub(r"(?m)^[ \\t]+$", "", html)
-        html = html.rstrip(" \\t\\r\\n")
+        html = re.sub(r"(?m)^[ \t]+$", "", html)
+        html = html.rstrip(" \t\r\n")
         if had_final_newline:
             html += newline
     return html, removed
