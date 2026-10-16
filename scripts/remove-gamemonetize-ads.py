@@ -19,7 +19,6 @@ RESOURCE_RE = re.compile(r"(?is)<(?:link|source|embed|img)\b[^>]*>")
 MONETIZATION_CALL_RE = re.compile(r"(?i)\bgmonetize_(?:pause|resume)\s*\(\s*\)\s*;?")
 MARKERS = (
     "gamemonetize",
-    "gmonetize",
     "gm-sdk-preload",
     "api.gamemonetize.com",
     "st39/sdk",
