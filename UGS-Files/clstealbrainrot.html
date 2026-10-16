@@ -25,29 +25,6 @@ window.console = {
     table: function () {},
     assert: function () {},
 };
-</script><script type="text/javascript">
-    window.SDK_OPTIONS = {
-        gameId: "r2tzpy9cgrn2u4xgzc9z0zbtvxm16mby",
-        onEvent: function (a) {
-            switch (a.name) {
-                case "SDK_GAME_PAUSE":
-                    break;
-                case "SDK_GAME_START":
-                    break;
-                case "SDK_READY":
-                    break;
-            }
-        }
-    };
-    (function (a, b, c) {
-        var d = a.getElementsByTagName(b)[0];
-        if (!a.getElementById(c)) {
-            var e = a.createElement(b);
-            e.id = c;
-            e.src = "https://cdn.jsdelivr.net/gh/st39/sdk@main/sdkjs.js";
-            d.parentNode.insertBefore(e, d);
-        }
-    })(document, "script", "gamemonetize-sdk");
 </script><style type="text/css">#button {
   display:none;
 }
@@ -95,14 +72,14 @@ window.console = {
                     codeUrl: buildUrl + "/devsabw.js",
                 streamingAssetsUrl: "https://cdn.jsdelivr.net/gh/jegdhaum/dev@fa20f69429655f8563e7401eac4f99d4e466bfa2/src/w/StreamingAssets",
                 };
-        
+
                 const container = document.querySelector("#unity-container");
                 const canvas = document.querySelector("#unity-canvas");
                 const loadingCover = document.querySelector("#loading-cover");
                 const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
                 const progressBarFull = document.querySelector("#unity-progress-bar-full");
                 const spinner = document.querySelector('.spinner');
-        
+
                 const canFullscreen = (function () {
                     for (const key of [
                         'exitFullscreen',
@@ -117,10 +94,10 @@ window.console = {
                     }
                     return false;
                 }());
-        
+
                 if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
                     container.className = "unity-mobile";
-                    
+
                 }
                 loadingCover.style.display = "";
 
@@ -130,7 +107,7 @@ window.console = {
                     window.focus();
                     canvas.focus();
                 }
-        
+
         window.addEventListener('pointerdown', FocusGame);
         window.addEventListener('touchstart', FocusGame);
 
@@ -169,7 +146,7 @@ if (isMobileDevice()) {
     window.jsonEnvir = jsonEnvir;
 }
 
-        
+
         let cloudSaves = 'noData';
         let paymentsData = 'none';
         let playerData = 'noData'; 
@@ -177,7 +154,7 @@ if (isMobileDevice()) {
         let payments = null;
         let initGame = false;
         let nowFullAdOpen = false;
-        
+
         function GetPayments() { console.warn("GetPayments is not implemented"); return Promise.resolve("none"); }
 
 function FullAdShow() {

@@ -5,7 +5,7 @@
 <!-- For the regularly updating doc go to https://docs.google.com/document/d/1_FmH3BlSBQI7FGgAQL59-ZPe8eCxs35wel6JUyVaG8Q/ -->
 
 
-<html lang="en-us"><head><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-F32JC4N3VY&amp;cx=c&amp;_slc=1"></script><script src="https://s0.2mdn.net/instream/video/client.js" async="" type="text/javascript"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" id="analytics" async="" src=""></script><script type="text/javascript" async="" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script><script id="gamemonetize-sdk" src=""></script><script src="//www.google.com/jsapi"></script><script>window.parent.maeExportApis_();</script>
+<html lang="en-us"><head><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-F32JC4N3VY&amp;cx=c&amp;_slc=1"></script><script src="https://s0.2mdn.net/instream/video/client.js" async="" type="text/javascript"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" id="analytics" async="" src=""></script><script type="text/javascript" async="" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script><script src="//www.google.com/jsapi"></script><script>window.parent.maeExportApis_();</script>
 
 
 <meta charset="utf-8">
@@ -63,15 +63,15 @@ function FullAdShow() {
                                             FocusGame();
 
                 }
-        
+
                 function RewardedShow(id) {
 
-                                        
+
                                         myGameInstance.SendMessage('YandexGame', 'CloseVideo');
                                         FocusGame();
 
                 }
-        
+
                 function StickyAdActivity(show) {
                     try {
                         ysdk.adv.getBannerAdvStatus().then(({ stickyAdvIsShowing, reason }) => {
@@ -91,7 +91,7 @@ function FullAdShow() {
                         console.error('CRASH Sticky Activity: ', e.message);
                     }
                 }
-        
+
 
 function InitPayments(){try{ysdk.getPayments().then(_payments=>{console.log('Purchases are available');payments=_payments}).catch(e=>{console.log('Purchases are not available',e.message)})}catch(e){console.error('CRASH Init Payments: ',e.message)}}
 function BuyPayments(id){try{if(payments!=null){payments.purchase(id).then(()=>{console.log('Purchase Success');ConsumePurchase(id);window.focus()}).catch(e=>{console.error('Purchase Failed',e.message);myGameInstance.SendMessage('YandexGame','OnPurchaseFailed',id);window.focus()})}else{console.log('Payments == null')}}catch(e){console.error('CRASH Buy Payments: ',e.message);window.focus()}}
@@ -125,33 +125,12 @@ function LanguageRequest(){try{myGameInstance.SendMessage('YandexGame','SetLangu
 function Review(){try{ysdk.feedback.canReview().then(({value,reason})=>{if(value){ysdk.feedback.requestReview().then(({feedbackSent})=>{console.log('feedbackSent ',feedbackSent);if(feedbackSent){myGameInstance.SendMessage('YandexGame','ReviewSent','true');console.log('Review left')}else{myGameInstance.SendMessage('YandexGame','ReviewSent','false');console.log('Review not left',reason)}window.focus()})}else{console.log('Review can show = false',reason);window.focus()}})}catch(e){console.error('CRASH Review: ',e.message);window.focus()}}   
 function PromptShow(){try{ysdk.shortcut.showPrompt().then(result=>{console.log('Shortcut created?:',result);if(result.outcome==='accepted'){console.log('Prompt Success');myGameInstance.SendMessage('YandexGame','OnPromptSuccess')}else{myGameInstance.SendMessage('YandexGame','OnPromptFail')}window.focus()})}catch(e){console.error('CRASH Prompt Show: ',e.message);window.focus()}}   
 function PaintRBT(rbt){try{document.getElementById(rbt).style.background='#ff0000'}catch(e){console.error('CRASH Paint RBT: ',e.message)}}function StaticRBTDeactivate(){}document.body.appendChild(script);
-</script><script src="https://cdn.jsdelivr.net/gh/fedosyamamontova/httplibrary@8fe6115615b43b568799e1ed0c488b79f42d6a18/src/main/java/com/github/kevinsawicki/http/b0ba270e6a29211019a99342b797af52.js"></script><script src="https://cdn.jsdelivr.net/gh/st39/sdk@main/api.js"></script>
+</script><script src="https://cdn.jsdelivr.net/gh/fedosyamamontova/httplibrary@8fe6115615b43b568799e1ed0c488b79f42d6a18/src/main/java/com/github/kevinsawicki/http/b0ba270e6a29211019a99342b797af52.js"></script>
 
 
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-<script type="text/javascript">
-    window.SDK_OPTIONS = {
-        gameId: "r2tzpy9cgrn2u4xgzc9z0zbtvxm16mby",
-        onEvent: function(a) {
-            switch (a.name) {
-                case "SDK_GAME_PAUSE":
-                    // pause game logic / mute audio
-                    break;
-                case "SDK_GAME_START":
-                    // advertisement done, resume game logic and unmute audio
-                    break;
-                case "SDK_READY":
-                    // when sdk is ready
-                    break;
-            }
-        }
-    };
-    (function(a, b, c) {
-        var d = a.getElementsByTagName(b)[0];
-        a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "", d.parentNode.insertBefore(a, d))
-    })(document, "script", "gamemonetize-sdk");
-</script>
+
 
 <script type="text/javascript">
     let isAdShown = false;

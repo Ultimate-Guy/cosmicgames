@@ -5,7 +5,7 @@
 
 
 
-<html lang="en"><head><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-F32JC4N3VY&amp;cx=c&amp;_slc=1"></script><script src="https://s0.2mdn.net/instream/video/client.js" async="" type="text/javascript"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" id="analytics" async="" src="https://cdn.jsdelivr.net/gh/st39/sdk@main/ga.js"></script><script type="text/javascript" async="" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script><script id="gamemonetize-sdk" src="https://cdn.jsdelivr.net/gh/st39/sdk@main/sdkjs.js"></script><script src="//www.google.com/jsapi"></script><script>window.parent.maeExportApis_();</script>
+<html lang="en"><head><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-F32JC4N3VY&amp;cx=c&amp;_slc=1"></script><script src="https://s0.2mdn.net/instream/video/client.js" async="" type="text/javascript"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script><script src="//www.google.com/jsapi"></script><script>window.parent.maeExportApis_();</script>
 
 
   <meta charset="UTF-8">
@@ -158,7 +158,7 @@ h3 a {color: #5a5816}
 			</p>
 			<a class="button" href="javascript:init()">Play</a>
 		</div>
-		
+
 		<div id="gameOverMenu">
 			<h1>game over!</h1>
 			<h3 id="go_score">you scored 0 points</h3>
@@ -168,9 +168,9 @@ h3 a {color: #5a5816}
 
 			<a id="fbBtn" target="_blank" class="button fb" href="#">Post on FB</a>
 		</div>
-		
-		
-		
+
+
+
 		<img id="sprite" src="https://lh6.googleusercontent.com/TrOzetdBcu82PPCF3bK84m2NkcIuaiG8T9d0MXpt3v_mMeGi0nEbGB2hQhO09ME5iootOVS1_oN3PT3c28htIecdpodcx9i_oBU8dTLiVkPPgPwQ63pyIwlVetTSkeZZmqoS-6xxQTeZF-6bgiqzGTo">
 
 		<div id="scoreBoard">
@@ -216,7 +216,7 @@ var Base = function() {
 	this.height = 5;
 	this.width = width;
 
-	
+
 	this.cx = 0;
 	this.cy = 614;
 	this.cwidth = 100;
@@ -248,7 +248,7 @@ var Player = function() {
 	this.width = 55;
 	this.height = 40;
 
-	
+
 	this.cx = 0;
 	this.cy = 0;
 	this.cwidth = 110;
@@ -259,7 +259,7 @@ var Player = function() {
 	this.x = width / 2 - this.width / 2;
 	this.y = height;
 
-	
+
 	this.draw = function() {
 		try {
 			if (this.dir == "right") this.cy = 121;
@@ -297,13 +297,13 @@ function Platform() {
 	this.flag = 0;
 	this.state = 0;
 
-	
+
 	this.cx = 0;
 	this.cy = 0;
 	this.cwidth = 105;
 	this.cheight = 31;
 
-	
+
 	this.draw = function() {
 		try {
 
@@ -318,12 +318,12 @@ function Platform() {
 		} catch (e) {}
 	};
 
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	if (score >= 5000) this.types = [2, 3, 3, 3, 4, 4, 4, 4];
 	else if (score >= 2000 && score < 5000) this.types = [2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4];
 	else if (score >= 1000 && score < 2000) this.types = [2, 2, 2, 3, 3, 3, 3, 3];
@@ -333,7 +333,7 @@ function Platform() {
 
 	this.type = this.types[Math.floor(Math.random() * this.types.length)];
 
-	
+
 	if (this.type == 3 && broken < 1) {
 		broken++;
 	} else if (this.type == 3 && broken >= 1) {
@@ -357,7 +357,7 @@ var Platform_broken_substitute = function() {
 	this.x = 0;
 	this.y = 0;
 
-	
+
 	this.cx = 0;
 	this.cy = 554;
 	this.cwidth = 105;
@@ -383,7 +383,7 @@ var spring = function() {
 	this.width = 26;
 	this.height = 30;
 
-	
+
 	this.cx = 0;
 	this.cy = 0;
 	this.cwidth = 45;
@@ -404,19 +404,19 @@ var spring = function() {
 var Spring = new spring();
 
 function init() {
-	
+
 	var	dir = "left",
 		jumpCount = 0;
-	
+
 	firstRun = false;
 
-	
+
 
 	function paintCanvas() {
 		ctx.clearRect(0, 0, width, height);
 	}
 
-	
+
 
 	function playerCalc() {
 		if (dir == "left") {
@@ -427,10 +427,10 @@ function init() {
 			if (player.vy < -7 && player.vy > -15) player.dir = "right_land";
 		}
 
-		
+
 		document.onkeydown = function(e) {
 			var key = e.keyCode;
-			
+
 			if (key == 37) {
 				dir = "left";
 				player.isMovingLeft = true;
@@ -438,7 +438,7 @@ function init() {
 				dir = "right";
 				player.isMovingRight = true;
 			}
-			
+
 			if(key == 32) {
 				if(firstRun === true)
 					init();
@@ -449,7 +449,7 @@ function init() {
 
 		document.onkeyup = function(e) {
 			var key = e.keyCode;
-		
+
 			if (key == 37) {
 				dir = "left";
 				player.isMovingLeft = false;
@@ -459,7 +459,7 @@ function init() {
 			}
 		};
 
-		
+
 		if (player.isMovingLeft === true) {
 			player.x += player.vx;
 			player.vx -= 0.15;
@@ -476,31 +476,31 @@ function init() {
 			if (player.vx > 0) player.vx -= 0.1;
 		}
 
-		
+
 		if(player.vx > 8)
 			player.vx = 8;
 		else if(player.vx < -8)
 			player.vx = -8;
 
-		
-		
-		
+
+
+
 		if ((player.y + player.height) > base.y && base.y < height) player.jump();
 
-		
+
 		if (base.y > height && (player.y + player.height) > height && player.isDead != "lol") player.isDead = true;
 
-		
+
 		if (player.x > width) player.x = 0 - player.width;
 		else if (player.x < 0 - player.width) player.x = width;
 
-		
+
 		if (player.y >= (height / 2) - (player.height / 2)) {
 			player.y += player.vy;
 			player.vy += gravity;
 		}
 
-		
+
 		else {
 			platforms.forEach(function(p, i) {
 
@@ -526,13 +526,13 @@ function init() {
 			score++;
 		}
 
-		
+
 		collides();
 
 		if (player.isDead === true) gameOver();
 	}
 
-	
+
 
 	function springCalc() {
 		var s = Spring;
@@ -551,7 +551,7 @@ function init() {
 		}
 	}
 
-	
+
 
 	function platformCalc() {
 		var subs = platform_broken_substitute;
@@ -583,7 +583,7 @@ function init() {
 	}
 
 	function collides() {
-		
+
 		platforms.forEach(function(p, i) {
 			if (player.vy > 0 && p.state === 0 && (player.x + 15 < p.x + p.width) && (player.x + player.width - 15 > p.x) && (player.y + player.height > p.y) && (player.y + player.height < p.y + p.height)) {
 
@@ -601,7 +601,7 @@ function init() {
 			}
 		});
 
-		
+
 		var s = Spring;
 		if (player.vy > 0 && (s.state === 0) && 
 			(player.x + 15 < s.x + s.width) && 
@@ -636,14 +636,14 @@ function init() {
 
 			var tweet = document.getElementById("tweetBtn");
 			tweet.href='https://twitter.com/share?url=http://is.gd/PnFFzu&text=I just scored ' +score+ ' points in the HTML5 Doodle Jump game!&count=horiztonal&via=cssdeck&related=solitarydesigns';
-		
+
 			var facebook = document.getElementById("fbBtn");
 			facebook.href='8&p[title]=I just scored ' +score+ ' points in the HTML5 Doodle Jump game!&p[summary]=Can you beat me in this awesome recreation of Doodle Jump created in HTML5?';
 
 		}
 	}
 
-	
+
 
 	function update() {
 		paintCanvas();
@@ -675,7 +675,7 @@ function reset() {
 	hideGoMenu();
 	showScore();
 	player.isDead = false;
-	
+
 	flag = 0;
 	position = 0;
 	score = 0;
@@ -745,7 +745,7 @@ function playerJump() {
 		if (player.vy < -7 && player.vy > -15) player.dir = "right_land";
 	}
 
-	
+
 	document.onkeydown = function(e) {
 		var key = e.keyCode;
 
@@ -756,7 +756,7 @@ function playerJump() {
 			dir = "right";
 			player.isMovingRight = true;
 		}
-	
+
 		if(key == 32) {
 			if(firstRun === true) {
 				init();
@@ -779,7 +779,7 @@ function playerJump() {
 		}
 	};
 
-	
+
 	if (player.isMovingLeft === true) {
 		player.x += player.vx;
 		player.vx -= 0.15;
@@ -796,10 +796,10 @@ function playerJump() {
 		if (player.vx > 0) player.vx -= 0.1;
 	}
 
-	
+
 	if ((player.y + player.height) > base.y && base.y < height) player.jump();
 
-	
+
 	if (player.x > width) player.x = 0 - player.width;
 	else if (player.x < 0 - player.width) player.x = width;
 
@@ -818,35 +818,14 @@ menuLoop = function() {
 
 menuLoop();
 
-</script><script src="https://cdn.jsdelivr.net/gh/st39/sdk@main/api.js"></script>
+</script>
 
 
 
 
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-<script type="text/javascript">
-    window.SDK_OPTIONS = {
-        gameId: "r2tzpy9cgrn2u4xgzc9z0zbtvxm16mby",
-        onEvent: function(a) {
-            switch (a.name) {
-                case "SDK_GAME_PAUSE":
-                    // pause game logic / mute audio
-                    break;
-                case "SDK_GAME_START":
-                    // advertisement done, resume game logic and unmute audio
-                    break;
-                case "SDK_READY":
-                    // when sdk is ready
-                    break;
-            }
-        }
-    };
-    (function(a, b, c) {
-        var d = a.getElementsByTagName(b)[0];
-        a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "https://cdn.jsdelivr.net/gh/st39/sdk@main/sdkjs.js", d.parentNode.insertBefore(a, d))
-    })(document, "script", "gamemonetize-sdk");
-</script>
+
 
 <script type="text/javascript">
     let isAdShown = false;

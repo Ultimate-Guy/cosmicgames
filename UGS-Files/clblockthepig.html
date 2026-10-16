@@ -5,7 +5,7 @@
 <!-- For the regularly updating doc go to https://docs.google.com/document/d/1_FmH3BlSBQI7FGgAQL59-ZPe8eCxs35wel6JUyVaG8Q/ -->
 
 
-<html><head><script async="" src=""></script><script src="https://"></script><script id="gamemonetize-sdk" src=""></script><script src="//www.google.com/jsapi"></script><script>window.parent.maeExportApis_();</script>
+<html><head><script async="" src=""></script><script src="https://"></script><script src="//www.google.com/jsapi"></script><script>window.parent.maeExportApis_();</script>
 
 
 
@@ -60,24 +60,24 @@
   }
 }</style><script type="text/javascript" async="" src=""></script><script type="text/javascript" async="" src=""></script><script type="text/javascript" async="" src=""></script><script type="text/javascript" async="" src=""></script></head>
 <body style="cursor: auto;">
-  
+
 
     <script>
-        
+
         (function() {
-            
+
             if (window.location.protocol.substr(0, 4) ==="file") {
                 alert("Exported games won't work until you upload them. (When running on the file:/// protocol, browsers block many features from working for security reasons.)");
             }
         })();
     </script>
 
-    
+
     <div id="c2canvasdiv" style="width: 279px; height: 418px; margin-left: 201px; margin-top: 0px;">
 
-        
+
         <canvas id="c2canvas" width="279" height="418" style="width: 279px; height: 418px;">
-			
+
 			<h1>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="https://www.whatbrowser.org">What is a browser?</a>
 			<br><br><a href="https://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br>
 			<a href="https://www.mozilla.com/firefox/">Mozilla Firefox</a><br>
@@ -87,26 +87,26 @@
 
     </div>
 
-    
 
-    
+
+
     <script src="https://cdn.jsdelivr.net/gh/bubbls/ruffle@83ea4ca9814f2742e8f84181ec45a6c195beeb45/jquery-3.4.1.min1.js"></script>
 
    <script src="https://cdn.jsdelivr.net/gh/bubbls/ruffle@83ea4ca9814f2742e8f84181ec45a6c195beeb45/bundlew.js"></script>
       <script src="https://cdn.jsdelivr.net/gh/bubbls/ruffle@83ea4ca9814f2742e8f84181ec45a6c195beeb45/sdk1-6.js"></script>
 
 
-    
+
     <script src="https://cdn.jsdelivr.net/gh/bubbls/ruffle@83ea4ca9814f2742e8f84181ec45a6c195beeb45/c2runtimeqw.js"></script>
 
     <script>
-        
+
         jQuery(document).ready(function() {
-            
+
             cr_createRuntime("c2canvas");
         });
 
-        
+
         function onVisibilityChanged() {
             if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden)
                 cr_setSuspended(true);
@@ -123,8 +123,8 @@
             console.warn("Failed to register service worker: ", e);
         };
 
-        
-        
+
+
         window.C2_RegisterSW = function C2_RegisterSW() {
             if (!navigator.serviceWorker)
                 return; 
@@ -142,4 +142,3 @@
             }
         };
     </script>
-

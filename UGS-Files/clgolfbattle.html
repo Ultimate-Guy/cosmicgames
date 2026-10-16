@@ -22,7 +22,7 @@
 
 </div>
  <script>
-    
+
     var randomLevels = true;  // set false for select your levels, we put this only as showcase
     var soundOff      = false;
     (
@@ -30,9 +30,9 @@
 			"use strict";
 			var scope          = {};
 
-			
+
 			Object.defineProperties(window, {
-				
+
 				 quickstartGame : {
 					value : function() {
 						skipMenu = true;							
@@ -78,14 +78,14 @@
 				},				
 				setTimeToEnd : {
 					value : function(time) {
-						
+
 						if (_menu != null)		
 							_menu.setTime_eazegames(time);						
 						else				
 							setTimeout(window.setTimeToEnd.bind(window,time), 60);						
 					}
 				},
-				
+
 				onGameUpdate : {
 					value : function(scoreAdded) {
 						if (window.gameFinished) return;
@@ -96,7 +96,7 @@
 					value : function onGameLoad(time) {
 						if (window.gameFinished) return;
 						console.log("GAME LOAD WAS CALLED!!! ", time);
-						
+
 					}
 				},
 
@@ -132,7 +132,7 @@
 			});			
 		}
 	)();
-    
+
     //lang
      var LANGS_OBJ    = {
 		"en" : 0,
@@ -147,15 +147,15 @@
 
 		selectedLang = LANGS_OBJ[ searchParams.locale ] || LANGS_OBJ.en;
 	} catch (e) {}
-    
+
     var lenguajeManual = true;
     var lenguajeEl  = selectedLang;
-    
+
      var APP = null;
     var hiloStart = null;    
     var timeToStartGame = 300;
 	 hiloStart = setInterval(esperaJuegoListo,30);
-	
+
 	function esperaJuegoListo()
 	{
 		if(APP != null)
@@ -172,7 +172,7 @@
            setLevels = "1-10-20-40-60-15"; //reccomended not upper 15 or 20;
 		APP.start();		
 	}
-	
+
 	var isMobile = {
             Android: function() {
                 return navigator.userAgent.match(/Android/i);
@@ -216,15 +216,15 @@
         pc.script.legacy = false;
         PRELOAD_MODULES = [
         ];
-        
-        
-        
+
+
+
           function isset(variable) {
            return typeof variable !== typeof undefined;
        }
-      
 
-  
+
+
 
        document.addEventListener("pause", onPause, false);
        document.addEventListener("resume", onResume, false);
@@ -244,7 +244,7 @@
                    }             
            }
        }
-     
+
       function onResume() {
            // Handle the resume event
            //console.log("en resumen!!");
@@ -283,7 +283,7 @@
            this.focus();
 
        };
-      
+
        window.onfocus = function()
        {
             //           console.log("en resumen!!");
@@ -302,7 +302,7 @@
            */
 
        };
-   
+
    	function loadjscssfile(filename, filetype) {
 		if (filetype == "js") { //if filename is a external JavaScript file
 			var fileref = document.createElement("script");
@@ -317,42 +317,12 @@
 		if (typeof fileref != "undefined")
 			document.getElementsByTagName("head")[ 0 ].appendChild(fileref);
 	}      
-        
-        
+
+
  </script>
 <script src="__start__.js"></script>    
 
-  <script type="text/javascript">
-      window.SDK_OPTIONS = {
-        gameId: "w0ij1igcyt8yd96ppelksxcwulp0inye",
-        onEvent: function (a) {
-                  switch (a.name) {
-            case "SDK_GAME_PAUSE":
-               break;
-            case "SDK_GAME_START":
-               break;
-            case "SDK_READY":
-               break;
-          }
-        },
-      };
-      (function (a, b, c) {
-        var d = a.getElementsByTagName(b)[0];
-        a.getElementById(c) ||
-          ((a = a.createElement(b)),
-          (a.id = c),
-          (a.src = "https://lablockedgames.com/gamemo.js"),
-          d.parentNode.insertBefore(a, d));
-      })(document, "script", "gamemonetize-sdk");  
 
-setTimeout(function() {
-    sdk.showBanner();
-}, 5000);
-     
-     window.setInterval(function(){
-sdk.showBanner();
-}, 60000);
-    </script>
 		<script>
        if (typeof getAdinDomain !== 'undefined') {
            const bodyTag = document.getElementsByTagName('body')[0];

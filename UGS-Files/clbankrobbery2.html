@@ -37,7 +37,7 @@
         <div class="spinner"></div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/gh/st39/sdk@main/api.js"></script>
+
 <script>
     var gameState = {
         isInitialized: false,
@@ -215,7 +215,7 @@
 
     async function InitSDK(photoSize, scopes) {
         await waitForGameInitialization();
-        
+
         console.log('Init GAME');
         gameState.initGame = true;
         gameState.photoSizeForInit = photoSize;
@@ -299,16 +299,16 @@
     }
 
     function RewardedShow(id) {
-     
+
                             console.log('Reward Video Ad. Id: ' + id);
                             myGameInstance.SendMessage('YandexGame', 'RewardVideo', id);
-                        
+
     }
 
     function StickyAdActivity(show) {
-        
+
                         ysdk.adv.hideBannerAdv();
-                  
+
     }
 
     function InitPayments() {
@@ -325,13 +325,13 @@
     }
 
     function BuyPayments(id) {
-    
+
                     console.log('Purchase Success');
                     myGameInstance.SendMessage('YandexGame', 'OnPurchaseSuccess', id);
                     window.focus();
-        
+
     }
-    
+
     function GetPayments() {
         try {
             if (payments != null) {
@@ -343,7 +343,7 @@
                         let imageURI = [products.length];
                         let priceValue = [products.length];
                         let purchased = [products.length];
-    
+
                         for (i = 0; i < products.length; i++) {
                             productID[i] = products[i].id;
                             title[i] = products[i].title;
@@ -352,7 +352,7 @@
                             priceValue[i] = products[i].priceValue;
                             purchased[i] = 0;
                         }
-    
+
                         payments.getPurchases().then(purchases => {
                             for (i1 = 0; i1 < products.length; i1++) {
                                 for (i2 = 0; i2 < purchases.length; i2++) {
@@ -641,7 +641,7 @@
     <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport">
 	<title></title>
 
-    
+
 <script>
 /* mp-start */
 

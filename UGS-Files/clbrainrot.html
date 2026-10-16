@@ -8,7 +8,7 @@
 
 
 
-<html lang="en"><head><script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" id="analytics" async="" src="https://cdn.jsdelivr.net/gh/st39/sdk@main/ga.js"></script><script type="text/javascript" async="" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script><script id="gamemonetize-sdk" src="https://cdn.jsdelivr.net/gh/st39/sdk@main/sdkjs.js"></script><script src="//www.google.com/jsapi"></script><script>window.parent.maeExportApis_();</script>
+<html lang="en"><head><script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script><script src="//www.google.com/jsapi"></script><script>window.parent.maeExportApis_();</script>
 
 
 <meta charset="utf-8">
@@ -27,29 +27,6 @@ window.console = {
     table: function () {},
     assert: function () {},
 };
-</script><script type="text/javascript">
-    window.SDK_OPTIONS = {
-        gameId: "r2tzpy9cgrn2u4xgzc9z0zbtvxm16mby",
-        onEvent: function (a) {
-            switch (a.name) {
-                case "SDK_GAME_PAUSE":
-                    break;
-                case "SDK_GAME_START":
-                    break;
-                case "SDK_READY":
-                    break;
-            }
-        }
-    };
-    (function (a, b, c) {
-        var d = a.getElementsByTagName(b)[0];
-        if (!a.getElementById(c)) {
-            var e = a.createElement(b);
-            e.id = c;
-            e.src = "https://cdn.jsdelivr.net/gh/st39/sdk@main/sdkjs.js";
-            d.parentNode.insertBefore(e, d);
-        }
-    })(document, "script", "gamemonetize-sdk");
 </script><style type="text/css">#button {
   display:none;
 }
@@ -103,7 +80,7 @@ window.console = {
   const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
   const progressBarFull  = document.querySelector("#unity-progress-bar-full");
   const spinner = document.querySelector(".spinner");
-  
+
   (function(){
   const _alert = window.alert;
   window.alert = function(msg){
@@ -480,7 +457,7 @@ function GetLeaderboard(nameLB, quantityTop, quantityAround, photoSize, auth) {
     sendYG('LeaderboardEntries', JSON.stringify(payload));
   } catch {}
 }
-  
+
   window._InitEnvironmentData_js = function(){ try{ RequestingEnvironmentData(); }catch{} };
   window._InitPlayer_js          = function(){ try{ InitPlayer(); }catch{} };
   window._LoadCloud_js           = function(){ try{ LoadCloud(); }catch{} };

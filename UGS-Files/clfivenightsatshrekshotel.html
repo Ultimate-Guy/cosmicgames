@@ -13,29 +13,8 @@
     <title>Five Nights at Shrek's Hotel</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-    <script>
-        const originalCreateElement = document.createElement;
-        document.createElement = function(tagName) { 
-            const element = originalCreateElement.call(document, tagName);
-            if (tagName.toLowerCase() === 'script') {
-                Object.defineProperty(element, 'src', {
-                    set: function(value) {
-                        if (value.includes("https://api.gamemonetize.com/sdk.js")) {
-                            console.log("Intercepted SDK script. Redirecting...");
-                            value = "https://api.gamemonetize.com/sdk.js";
-                        }
-                        element.setAttribute('src', value);
-                    },
-                    get: function() {
-                        return element.getAttribute('src');
-                    }
-                });
-            }
-    
-            return element;
-        };
-    </script>
-    
+
+
 </head>
 <body>
 

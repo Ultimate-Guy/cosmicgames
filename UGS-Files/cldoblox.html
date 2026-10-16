@@ -15,34 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bubbls/robobs@main/style.css"/>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/bubbls/robobs@main/Web%20Audio%20Plugin/howler.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/bubbls/robobs@b685f532590449e8ed9fa5158ffd37fa7d7c1a0d/Web%20Audio%20Plugin/WebAudio.js"></script>
-    <script type="text/javascript">
-        window.SDK_OPTIONS = {
-            gameId: "jp112o3o4hzgrnc7zaewjkrfk282pul8",
-            onEvent: function (a) {
-                switch (a.name) {
-                    case "SDK_GAME_PAUSE":
-                        console.log("Oyun duraklatıldı, ses kapatılıyor...");
-                        if (typeof myGameInstance !== 'undefined' && myGameInstance) {
-                            myGameInstance.SendMessage('AudioManager', 'MuteAudio');
-                        }
-                        break;
-                    case "SDK_GAME_START":
-                        console.log("Reklam bitti, oyun devam ediyor...");
-                        if (typeof myGameInstance !== 'undefined' && myGameInstance) {
-                            myGameInstance.SendMessage('AudioManager', 'UnmuteAudio');
-                        }
-                        break;
-                    case "SDK_READY":
-                        console.log("SDK hazır.");
-                        break;
-                }
-            }
-        };
-        (function (a, b, c) {
-            var d = a.getElementsByTagName(b)[0];
-            a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "https://cdn.jsdelivr.net/gh/testamalame/sef@main/sedk.js", d.parentNode.insertBefore(a, d));
-        })(document, "script", "gamemonetize-sdk");
-    </script>
+
     <style>
         canvas:focus {
             outline: none;
