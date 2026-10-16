@@ -36,6 +36,17 @@ def remove_gamemonetize(html: str) -> tuple[str, int]:
     """Return cleaned HTML and number of removed SDK/resource blocks."""
     removed = 0
 
+    def clean_comment(match: re.Match[str]) -> str:
+        nonlocal removed
+        if is_monetization_block(match.group(0)):
+            removed += 1
+            return ""
+        return match.group(0)
+
+    # Remove commented-out SDK injections before parsing script tags, otherwise
+    # the script matcher could leave an empty HTML comment behind.
+    html = COMMENT_RE.sub(clean_comment, html)
+
     def clean_script(match: re.Match[str]) -> str:
         nonlocal removed
         block = match.group(0)
@@ -73,14 +84,6 @@ def remove_gamemonetize(html: str) -> tuple[str, int]:
 
     html = RESOURCE_RE.sub(clean_resource, html)
 
-    def clean_comment(match: re.Match[str]) -> str:
-        nonlocal removed
-        if is_monetization_block(match.group(0)):
-            removed += 1
-            return ""
-        return match.group(0)
-
-    html = COMMENT_RE.sub(clean_comment, html)
     html, call_count = MONETIZATION_CALL_RE.subn("", html)
     removed += call_count
     return html, removed
