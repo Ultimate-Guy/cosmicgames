@@ -1,0 +1,52 @@
+name: Remove GameMonetize ad injections
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'UGS-Files/**'
+      - 'scripts/remove-gamemonetize-ads.py'
+      - 'scripts/test-remove-gamemonetize-ads.py'
+      - '.github/workflows/remove-gamemonetize-ads.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gamemonetize-cleanup
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out source games
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Test cleanup rules
+        run: python3 scripts/test-remove-gamemonetize-ads.py
+
+      - name: Remove GameMonetize injections from all game HTML
+        run: python3 scripts/remove-gamemonetize-ads.py UGS-Files
+
+      - name: Verify no GameMonetize injections remain
+        run: python3 scripts/remove-gamemonetize-ads.py --check UGS-Files
+
+      - name: Check patch formatting
+        run: git diff --check
+
+      - name: Commit cleaned game files
+        run: |
+          if git diff --quiet -- UGS-Files; then
+            echo "No GameMonetize code remains in the current UGS-Files HTML set."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add UGS-Files
+          git commit -m "Remove GameMonetize ad SDK injections [skip ci]"
+          git push
